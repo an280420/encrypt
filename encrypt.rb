@@ -1,23 +1,23 @@
 require 'digest'
 
-puts "Введите слово или вразу для шифорования"
+puts "Введите слово или фразу для шифрования"
 text = gets.chomp
 
 puts "Каким способом зашифровать"
 puts "1. MD5"
 puts "2. SHA1"
 
-option = nil
+encrypt_method = gets.to_i
 
-until option == 1 || option == 2 do
-  option = gets[0]
-end
-
-if option == 1
-  result = Digest::MD5.hexdigest text
-else
-  result = Digest::SHA1.hexdigest text
+until encrypt_method.between?(1, 2)
+  puts "Выберите 1 или 2"
+  encrypt_method = gets.to_i
 end
 
 puts "Вот что получилось"
-puts result
+
+if encrypt_method == 1
+  puts Digest::MD5.hexdigest text
+else
+  puts Digest::SHA1.hexdigest text
+end
