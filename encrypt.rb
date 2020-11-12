@@ -10,7 +10,7 @@ puts "3. SHA2"
 
 encrypt_method = gets.to_i
 
-until encrypt_method.between?(1..3)
+until encrypt_method.between?(1, 3)
   puts "Выберите 1, 2 или 3"
   encrypt_method = gets.to_i
 end
